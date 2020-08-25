@@ -2,14 +2,10 @@
 
 FROM node:latest
 
-WORKDIR /docker-github-action-application
+WORKDIR /app
 
-COPY . .
-
-ENV PORT=3000
-
+COPY package.json .
 RUN npm install 
-
-EXPOSE ${PORT}
+COPY . .
 
 ENTRYPOINT [ "npm", "start" ]
